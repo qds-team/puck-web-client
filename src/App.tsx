@@ -24,12 +24,12 @@ function App() {
       return {...prev, ...fields}
     })
   }
-  const {steps, currentStepIndex, step, isFirstStep, back, next}=
+  const {step, submit}=
    usePAPforms([<UserForm {...data} updateFields={updateFields}/>])
 
   function onSubmit(e: FormEvent){
     e.preventDefault()
-    next()
+    submit()
   }
 
   return <div style={{
@@ -50,8 +50,10 @@ function App() {
         display: "flex", 
         gap: ".5rem", 
         justifyContent: "flex-end"}}>
-            {!isFirstStep && <button onClick={back}>Back</button>} 
-            <button onClick={next}>Submit</button>
+            <button onClick={submit}>Submit</button> 
+                
+                
+
         </div>
     </form>
   </div>

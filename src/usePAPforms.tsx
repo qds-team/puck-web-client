@@ -1,20 +1,19 @@
 import { ReactElement, useState } from "react";
+import axios from "axios";
 
 export function usePAPforms(steps: ReactElement[]){
     const [currentStepIndex, setCurrentStepIndex] = useState(0)
 
-    function next(){
-        setCurrentStepIndex(i => {
-            if (i >= steps.length - 1) return i
-            return i + 1
+    function submit(){
+       // let handleSubmit = async() => { try {axios.put('localhost:9999', FormData) } catch (err) { console.log(err); } };
+        axios.put('localhost:9998', FormData)
+        .then(response => {
+        console.log(response.data);
         })
-    }
+        .catch(error => {
+        console.log(error);
+        });
 
-    function back(){
-        setCurrentStepIndex(i => {
-            if (i <= 0) return i
-            return i - 1
-        })
     }
 
     function goTo(index: number){
@@ -22,12 +21,7 @@ export function usePAPforms(steps: ReactElement[]){
     }
 
     return {
-        currentStepIndex, 
         step: steps[currentStepIndex],
-        isFirstStep: currentStepIndex ===0,
-        steps,
-        goTo, 
-        next, 
-        back
+        submit
     }
 }
