@@ -6,11 +6,9 @@ import { usePAPforms } from './usePAPforms';
 import { UserForm } from './UserForm';
 import { useState } from 'react';
 import { FormEvent } from 'react';
+import {FormData} from './types'
 
-type FormData = {
-  filePath: string
-  password: string
-}
+
 
 const INITIAL_DATA: FormData= {
   filePath: "",
@@ -27,9 +25,8 @@ function App() {
   const {step, submit}=
    usePAPforms([<UserForm {...data} updateFields={updateFields}/>])
 
-  function onSubmit(e: FormEvent){
-    e.preventDefault()
-    submit()
+  function onSubmit(){
+    submit(data)
   }
 
   return <div style={{
@@ -47,13 +44,10 @@ function App() {
 
       {step}
         <div style={{marginTop: "1rem", 
-        display: "flex", 
-        gap: ".5rem", 
-        justifyContent: "flex-end"}}>
-            <button onClick={submit}>Submit</button> 
-                
-                
-
+          display: "flex", 
+          gap: ".5rem", 
+          justifyContent: "flex-end"}}>
+          <button onClick={ onSubmit }>Submit</button> 
         </div>
     </form>
   </div>

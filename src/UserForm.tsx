@@ -13,16 +13,16 @@ export function UserForm({filePath, password, updateFields}: UserFormProps){
         <FormWrapper title="Login Information">
             <label>File Path</label>
             <input autoFocus
-            required 
-            type="text" 
-            value={filePath}
-            onChange={e => updateFields({filePath: e.target.value})}
+                required 
+                type="text" 
+                value={filePath}
+                onChange={e => updateFields({filePath: e.target.value})}
             />
 
             <label>Password</label>
             <input required type="password" 
-            value={password}
-            onChange={e => updateFields({password: e.target.value})}
+                value={password}
+                onChange={e => updateFields({password: e.target.value})}
             />
 
         </FormWrapper>
