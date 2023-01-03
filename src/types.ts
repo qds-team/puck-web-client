@@ -1,4 +1,4 @@
 export type FormData = {
-    filePath: string
-    password: string
-}
+    filePath: string;
+    password: string;
+};

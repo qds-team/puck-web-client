@@ -1,11 +1,9 @@
-import React from 'react';
 import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
 import { usePAPforms } from './usePAPforms';
 import { UserForm } from './UserForm';
-import { useState } from 'react';
-import { FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import { FormData } from './types';
 
 const INITIAL_DATA: FormData = {
