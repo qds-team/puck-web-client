@@ -7,13 +7,23 @@ export function usePAPforms(steps: ReactElement[]){
 
     async function submit(formData: FormData){
        // let handleSubmit = async() => { try {axios.put('localhost:9999', FormData) } catch (err) { console.log(err); } };
+
+       let pathResponse;
+       let getPath; 
+
         try {
-            const pathResponse = await axios.put('http://localhost:9999/set-path', formData.filePath);
+            pathResponse = await axios.put('http://localhost:9999/set-path', formData.filePath);
             const passwordResponse = await axios.put('http://localhost:9999/set-password', formData.password)
+            getPath = await axios.get('http://localhost:9999/get-password');
 
             alert(pathResponse.data + '\n' + passwordResponse.data);
         } catch (err: any) {
-            alert(`Error: ${err.message}`)
+
+            if(getPath !== pathResponse){
+                alert('Error: Wrong Path >:(((')
+            } else {
+                alert(`Error: ${err.message}`)
+            }
         }
     }
 
