@@ -20,7 +20,7 @@ export function usePAPforms(steps: ReactElement[]){
         } catch (err: any) {
 
             if(getPath !== pathResponse){
-                alert('Error: Wrong Path >:(((')
+                alert('Error: Wrong path name >:(((')
             } else {
                 alert(`Error: ${err.message}`)
             }
