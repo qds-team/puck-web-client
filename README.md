@@ -16,7 +16,11 @@ Run Unit Tests
 yarn test
 ```
 
-Run Linter before Commits or Merging to Master branch
+Run formatter before Commits or Merging to Master branch
 ```
-yarn lint
+yarn format
+```
+To install the formatter:
+```
+yarn global add prettier
 ```
